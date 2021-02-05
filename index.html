@@ -4,9 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="main.js" defer></script>
   <title>Notes</title>
 </head>
 <body>
-  
+  <form id="notes-field">
+    <div class="form-field">
+      <input id="notes-text" type="text" placeholder="Notes here">
+    </div>
+    <div class="form-field">
+      <button id="save-notes" type="submit">Save note</button>
+    </div>
+    <section id="notes">
+      <ul id="notes-taken"></ul>
+    </section>
+  </form>
 </body>
 </html>
