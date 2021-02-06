@@ -4,20 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <script src = "moment.js"></script>
   <script src="main.js" defer></script>
   <title>Notes</title>
 </head>
-<body>
-  <form id="notes-field">
+<body class="avenir pa4">
+  <h1 class="f3 f2-m f1-l fw2 black-90 mv3">Notes</h1>
+  <form id="notes-field" class="pv4">
     <div class="form-field">
-      <input id="notes-text" type="text" placeholder="Notes here">
+      <input id="notes-text" class="pa3 w-100 measure" type="text" placeholder="Notes here" required>
     </div>
     <div class="form-field">
-      <button id="save-notes" type="submit">Save note</button>
+      <button id="save-notes" type="submit" class="mt3 f6 ph3 pv2 mb2 dib white bg-dark-blue">Save note</button>
+      <!-- <button id="destroy" type="">Destroy!</button> -->
     </div>
-    <section id="notes">
-      <ul id="notes-taken"></ul>
+    <section id="notes" class="pa3">
+      <ul id="notes-taken" class="list pl0 measure"></ul>
     </section>
   </form>
 </body>

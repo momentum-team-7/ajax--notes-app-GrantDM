@@ -56,7 +56,7 @@ notesTaken.addEventListener('click', function (event) {
         updateNote(event.target)
     }
     if (event.target.classList.contains('cancel')) {
-        cancelNote(event.target.parentElement)
+        hideEditInput(event.target.parentElement)
     }
 })
 
@@ -103,10 +103,11 @@ function deleteNote(element) {
 // use a function on it.
         method: 'DELETE'
 // uses the json behavior of 'delete' to get rid of notes that were made
-    }) .then(function() {
+    }) .then(() => {
         element.parentElement.remove()
 // removes the parent element of the selected variable
     })
+    // listNotes()
 }
 
 // this function only acts if the earlier eventlisteners are fired for this function
@@ -141,22 +142,38 @@ function updateNote(element) {
 
 function renderNoteItem(noteObj) {
     const itemEl = document.createElement('li')
+    // let destroyText = document.createElement('button')
+    // destroyText.className = 'destroy-text'
+    // destroyText.innerHTML = 'destroy text'
+    // const itemEl = document.createElement('li')
 // making a <p> tag and assigning it a variable
     itemEl.id = noteObj.id
 // appyling the id to both elements
-    itemEl.classList.add('note-item')
+    itemEl.classList.add('lh-copy',
+    'pv3',
+    'ba',
+    'bl-0',
+    'bt-0',
+    'br-0',
+    'b--dotted',
+    'b--black-3')
 // adding a class to the itemEl
     renderNoteText(itemEl, noteObj)
 // using the function defined later on these two elements
+    // notesTaken.appendChild(destroyText)
     notesTaken.appendChild(itemEl)
+    // notesTaken.appendChild(destroyText)
 // adding the itemEl element to the parent element notesTaken
     clearInputs()
 // after adding the element it will clear the input
+
 }
 
 function renderNoteText (notesTakenItem, noteObj) {
-    notesTakenItem.innerHTML = `<span class="text-item">${noteObj.item}</span>
-    <i class="delete"></i><i class="edit"></i>`
+    notesTakenItem.innerHTML = `<span class="dib w-60">${noteObj.item}</span>
+    <i class="ml2 dark-red fas fa-times delete"></i><i class="ml3 fas fa-edit edit"></i>`
+
+    
 }
 
 function editNote(element) {
@@ -165,9 +182,10 @@ function editNote(element) {
 
 function showEditInput(noteItem) {
     noteItem.innerHTML = `
-        <input class="edit-text" type="text" value="${noteItem.textContent}" autofocus>
-        <button class="update-note" data-note=${noteItem.id}>save note</button>
-        <button class="cancel">cancel</button>`
+    <input class="edit-text bw0 pl0 outline-0 w-60" type="text" value="${noteItem.textContent}" autofocus>
+    <button class='update-note f6 link br-pill p1 ml1 dib white bg-green' data-note=${noteItem.id}>save</button>
+    <button class='cancel f6 link br-pill p1 ml2 dib white light-purple'>cancel</button>
+    `
     noteItem.querySelector('input').select()
 }
 
